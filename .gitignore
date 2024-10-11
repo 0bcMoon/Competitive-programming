@@ -1,3 +1,58 @@
 ./test*
 ./tests
 *.txt
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Ignore common binary file extensions
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.dat
+*.o
+*.obj
+*.class
+
+# Ignore compressed files
+*.zip
+*.gz
+*.tar
+*.7z
+*.rar
+
+# Ignore image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+
+# Ignore audio files
+*.mp3
+*.wav
+*.ogg
+
+# Ignore video files
+*.mp4
+*.avi
+*.mov
+*.wmv
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore compiled Java files
+*.class
+
+# Ignore compiled C/C++ files
+*.out
