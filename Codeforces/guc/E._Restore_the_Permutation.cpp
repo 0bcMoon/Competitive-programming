@@ -15,16 +15,7 @@ void bcase(const T &value, bool newline = true)
 	if (newline)
 		std::cout << '\n';
 }
-template <typename T>
-std::optional<T> largest_less_than(const std::set<T> &s, const T &value)
-{
-	auto it = s.lower_bound(value);
-	if (it == s.begin())
-	{
-		return std::nullopt; // No element less than value
-	}
-	return *std::prev(it); // Return the previous element
-}
+
 void solve()
 {
 	int n;

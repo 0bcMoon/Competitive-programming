@@ -1,5 +1,6 @@
-./test*
-./tests
+test*
+tests
+
 *.txt
 # Ignore all
 *
