@@ -2,14 +2,10 @@ test*
 tests
 
 *.txt
-# Ignore all
-*
 
 # Unignore all with extensions
 !*.*
 
-# Unignore all dirs
-!*/
 
 # Ignore common binary file extensions
 *.exe
