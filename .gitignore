@@ -1,6 +1,7 @@
 test*
 tests
 
+file
 *.txt
 
 # Unignore all with extensions

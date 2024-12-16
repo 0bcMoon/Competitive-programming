@@ -13,21 +13,15 @@ void solve()
 		std::cin >> vec[i].first;
 	for (int i = 0; i < n; i++)
 		std::cin >> vec[i].second;
-	int sum = vec[0].first + vec[0].second;
-	int min = std::min(vec[0].first, vec[0].second);
-	ll totale = 0;
+	ll sum = 0;
 	for (int i = 0; i < n; i++)
-	{
-		int currsum = vec[i].first + vec[i].second;
-		if (sum < currsum)
-		{
-			sum = currsum;
-			min = std::min(vec[i].first, vec[i].second);
-		}
-		totale += std::max(vec[i].first, vec[i].second);
-	}
-	std::cout << totale + min << "\n";
+		sum += std::max(vec[i].first, vec[i].second);
+	ll ans = -1e9;
+	for (int i = 0;i<n;i++)
+		ans = std::max(ans, sum + std::min(vec[i].second, vec[i].first));
+	std::cout << ans << "\n";
 }
+
 int main()
 {
 	std::ios_base::sync_with_stdio(false);
@@ -40,3 +34,6 @@ int main()
 	}
 	return 0;
 }
+
+// 1 1 2 0 -4 -1
+// 1 4 2 -1 -3 2
