@@ -3,6 +3,7 @@
 using ll = long long;
 using lpair = std::pair<ll, ll>;
 using ipair = std::pair<int, int>;
+#define all(a) a.begin(), a.end()
 using namespace std;
 #include <set>
 #include <map>
@@ -66,52 +67,32 @@ void debug_out(const T& first, const Args&... rest) {
 #endif
 void solve()
 {
-	std::string s;
 	int n;
-	std::cin >> s;
-	n = s.size();
-	int dsum = 0;
-	for (size_t i = 0; i < s.size(); i++)
-		dsum += s[i] - 48;
-	if (dsum % 9 == 0)
+	std::cin >> n;
+	std::string s;
+	std::string r;
+	std::cin >> s >> r;
+	int cnt = 0;
+	for (int i = 0; i < n - 1; i++)
 	{
+		if (s[i] != s[i + 1])
+		{
+			cnt++;
+			int k = i;
+			while (k && s[k - 1] != r[k])
+			{
+				k--;
+				cnt++;
+			}
+			s[i + 1] = r[k];
+		}
+	}
+
+	dbg(cnt);
+	if (cnt >= n - 1)
 		std::cout << "YES\n";
-		return;
-	}
-	int two = 0;
-	int three = 0;
-	std::vector<int> vec;
-	for (int i = 0; i < n; i++)
-	{
-		if (s[i] == '2')
-		{
-			two++;
-			vec.push_back(2);
-		}
-		else if (s[i] == '3')
-		{
-			vec.push_back(6);
-			three++;
-		}
-		if (two > 10 && three > 10) // just simple thing hh
-			break;
-	}
-	int size = vec.size();
-	for (int i = 0; i < (1 << size); i++)
-	{
-		int sum = 0;
-		for (int j = 0; j < size; j++)
-		{
-			if ((i >> j) & 1)
-				sum += vec[j];
-		}
-		if ((sum + dsum) % 9 == 0)
-		{
-			std::cout << "YES\n";
-			return;
-		}
-	}
-	std::cout << "NO\n";
+	else
+		std::cout << "NO\n";
 }
 int main()
 {
@@ -125,3 +106,8 @@ int main()
 	}
 	return 0;
 }
+// 5
+// 10010010
+// 0010010
+011111111111111
+1100000000000

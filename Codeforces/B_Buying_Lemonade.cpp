@@ -1,26 +1,25 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#ifdef DEBUG
+#include "debug.hpp"
+#endif /* DEBUG */
+#ifndef DEBUG
+#define dbg(...)
+#endif // /* DEBUG */
 using ll = long long;
 using lpair = std::pair<ll, ll>;
 using ipair = std::pair<int, int>;
+#define all(a) a.begin(), a.end()
 void solve()
 {
 	int n, k;
 	std::cin >> n >> k;
-	int cnt = 0;
-	int sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		std::string s;
-		std::cin >> s;
-		sum += s.size();
-		if (sum <= k)
-			cnt++;
-	}
-	std::cout << cnt << "\n";
-}
+	std::vector<int> a(n);
+	for(auto &it : a) std::cin >> it;
+	std::sort(all(a));
 
+}
 int main()
 {
 	std::ios_base::sync_with_stdio(false);

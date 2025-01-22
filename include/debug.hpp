@@ -3,6 +3,12 @@
 #include <set>
 #include <map>
 #include <iostream>
+
+template<typename K, typename V>
+std::ostream& operator<<(std::ostream& os, const std::pair<K, V>& p) {
+    os << "(" << p.first << ", " << p.second << ")";
+    return os;
+}
 // A debug macro for single or multiple arguments
 // Overloads for printing containers
 template<typename T>
@@ -27,11 +33,6 @@ std::ostream& operator<<(std::ostream& os, const std::set<T>& s) {
     return os;
 }
 
-template<typename K, typename V>
-std::ostream& operator<<(std::ostream& os, const std::pair<K, V>& p) {
-    os << "(" << p.first << ", " << p.second << ")";
-    return os;
-}
 
 template<typename K, typename V>
 std::ostream& operator<<(std::ostream& os, const std::map<K, V>& m) {
@@ -43,7 +44,7 @@ std::ostream& operator<<(std::ostream& os, const std::map<K, V>& m) {
     os << "}";
     return os;
 }
-#define dbg(...) std::cerr << "(" << #__VA_ARGS__ << "): ", debug_out(__VA_ARGS__)
+
 
 template<typename T>
 void debug_out(const T& value) {
@@ -55,6 +56,8 @@ void debug_out(const T& first, const Args&... rest) {
     std::cerr << first << " ";
     debug_out(rest...);
 }
+
+#define dbg(...) std::cerr << "(" << #__VA_ARGS__ << "): ", debug_out(__VA_ARGS__)
 
 
 #endif // !DEBUG

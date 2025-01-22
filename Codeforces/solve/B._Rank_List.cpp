@@ -37,6 +37,16 @@ void solve()
 		else
 			kv->second++;
 	}
+	int sum = 0;
+	for (auto it:map)
+	{
+		sum += it.second;
+		if (k <= sum)
+		{
+			std::cout << it.second << "\n";
+			return ;
+		}
+	}
 
 }
 int main()
