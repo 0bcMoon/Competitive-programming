@@ -13,22 +13,30 @@ using ipair = std::pair<int, int>;
 #define all(a) a.begin(), a.end()
 void solve()
 {
-	int n, l, r;
-	std::cin >> n >> l >> r;
-	std::vector<int> vec(n);
-	for (auto &it : vec)
+	ll n, k;
+	std::cin >> n >> k;
+	std::vector<ll> a(n);
+	for (auto &it : a)
 		std::cin >> it;
-	ll sum = 0;
-	int k = r - l + 1;
-	for (int i = 0; i < k; i++)
-		sum += vec[i];
-	for (int i = 1; i < n - k + 1; i++)
+	std::sort(all(a));
+	ll cnt = 0;
+	ll cost = 0;
+	for (int i = 0; i < n; i++)
 	{
-		ll curr = sum + vec[k + i - 1] - vec[i - 1];
-		sum = std::min(curr, sum);
+		a[i] -= cost;
+		if (k <= (n - i) * a[i])
+		{
+			cnt += k;
+			break;
+		}
+		k -= (n - i) * a[i];
+		cnt += (n - i) * a[i];
+		cnt++;
+		cost += a[i];
 	}
-	std::cout << sum << "\n";
+	std::cout << cnt << "\n";
 }
+
 int main()
 {
 	std::ios_base::sync_with_stdio(false);

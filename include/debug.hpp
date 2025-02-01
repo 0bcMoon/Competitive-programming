@@ -58,6 +58,4 @@ void debug_out(const T& first, const Args&... rest) {
 }
 
 #define dbg(...) std::cerr << "(" << #__VA_ARGS__ << "): ", debug_out(__VA_ARGS__)
-
-
 #endif // !DEBUG
